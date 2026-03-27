@@ -7,6 +7,16 @@
 
 ---
 
+## Quick install
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/ccc7574/fireworks-skill-memory/main/install.sh | bash
+```
+
+Then type `/hooks` in Claude Code — done. No config files to edit manually.
+
+---
+
 ## The problem
 
 When you use a Claude Code skill repeatedly, the same mistakes happen session after session — wrong API parameter names, broken upload sequences, network proxy pitfalls — because Claude has no memory between sessions.
@@ -41,12 +51,23 @@ When you use a Claude Code skill repeatedly, the same mistakes happen session af
 
 ## Installation
 
-### Prerequisites
+### One command (recommended)
 
-- [Claude Code](https://claude.ai/code) installed and in `$PATH`
-- Python 3.9+
+```bash
+curl -fsSL https://raw.githubusercontent.com/ccc7574/fireworks-skill-memory/main/install.sh | bash
+```
 
-### Steps
+The script will:
+1. Check Python 3.9+ and Claude Code are available
+2. Download both hook scripts to `~/.claude/scripts/`
+3. Merge the hooks into your `~/.claude/settings.json` without touching existing settings
+4. Optionally seed starter `KNOWLEDGE.md` files for popular skills
+
+Then type `/hooks` in Claude Code to activate.
+
+### Manual install
+
+**Requirements:** Python 3.9+, [Claude Code](https://claude.ai/code) in `$PATH`
 
 **1. Clone the repo**
 

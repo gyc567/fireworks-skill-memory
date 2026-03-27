@@ -7,6 +7,16 @@
 
 ---
 
+## 一键安装
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/ccc7574/fireworks-skill-memory/main/install.sh | bash
+```
+
+然后在 Claude Code 中输入 `/hooks` 即可生效。无需手动编辑任何配置文件。
+
+---
+
 ## 问题背景
 
 重复使用 Claude Code skill 时，相同的错误会在不同会话中反复出现——错误的 API 参数名、图片上传顺序错误、国内网络代理配置遗漏——因为 Claude 在会话之间没有记忆。
@@ -41,12 +51,23 @@
 
 ## 安装
 
-### 前置条件
+### 一键安装（推荐）
 
-- [Claude Code](https://claude.ai/code) 已安装且在 `$PATH` 中
-- Python 3.9+
+```bash
+curl -fsSL https://raw.githubusercontent.com/ccc7574/fireworks-skill-memory/main/install.sh | bash
+```
 
-### 步骤
+脚本会自动完成：
+1. 检查 Python 3.9+ 和 Claude Code 是否可用
+2. 下载两个 hook 脚本到 `~/.claude/scripts/`
+3. 将 hook 合并到 `~/.claude/settings.json`（不破坏已有配置）
+4. 可选：为常用 skill 预置初始 `KNOWLEDGE.md` 文件
+
+完成后在 Claude Code 中输入 `/hooks` 激活。
+
+### 手动安装
+
+**前置条件：** Python 3.9+，[Claude Code](https://claude.ai/code) 在 `$PATH` 中
 
 **1. 克隆仓库**
 
