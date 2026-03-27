@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f1a"/>
+      <stop offset="100%" style="stop-color:#1a1a2e"/>
+    </linearGradient>
+    <linearGradient id="purple" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7c3aed"/>
+      <stop offset="100%" style="stop-color:#a855f7"/>
+    </linearGradient>
+    <linearGradient id="orange" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ea580c"/>
+      <stop offset="100%" style="stop-color:#f97316"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1d4ed8"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#059669"/>
+      <stop offset="100%" style="stop-color:#10b981"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#6366f1"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#f97316"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="580" fill="url(#bg)" rx="12"/>
+
+  <!-- Title -->
+  <text x="480" y="38" fill="#e2e8f0" font-family="'SF Mono', 'Fira Code', monospace" font-size="15" text-anchor="middle" font-weight="bold">fireworks-skill-memory  —  v2 Architecture (4 Optimizations)</text>
+  <line x1="80" y1="52" x2="880" y2="52" stroke="#334155" stroke-width="1"/>
+
+  <!-- ═══════════════ LEFT PANEL: INJECTION FLOW ═══════════════ -->
+  <rect x="30" y="68" width="390" height="460" fill="#0f172a" rx="10" stroke="#334155" stroke-width="1"/>
+  <rect x="30" y="68" width="390" height="30" fill="#1e293b" rx="10"/>
+  <rect x="30" y="88" width="390" height="10" fill="#1e293b"/>
+  <text x="225" y="88" fill="#94a3b8" font-family="'SF Mono', monospace" font-size="11" text-anchor="middle" font-weight="bold">INJECTION  ·  PostToolUse Hook</text>
+
+  <!-- User -->
+  <rect x="130" y="110" width="190" height="36" fill="#1e3a5f" rx="6" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="225" y="133" fill="#93c5fd" font-family="'SF Mono', monospace" font-size="12" text-anchor="middle">👤  User calls Skill</text>
+
+  <!-- Arrow -->
+  <line x1="225" y1="146" x2="225" y2="166" stroke="#6366f1" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- OPT-3 box -->
+  <rect x="75" y="168" width="300" height="56" fill="#1e1b4b" rx="6" stroke="#6366f1" stroke-width="1.5"/>
+  <rect x="75" y="168" width="300" height="16" fill="#312e81" rx="6"/>
+  <rect x="75" y="178" width="300" height="6" fill="#312e81"/>
+  <text x="225" y="180" fill="#a5b4fc" font-family="'SF Mono', monospace" font-size="9.5" text-anchor="middle" font-weight="bold">OPT-3  ·  Intent Filter</text>
+  <text x="225" y="197" fill="#c7d2fe" font-family="'SF Mono', monospace" font-size="9" text-anchor="middle">Active invocation → full KNOWLEDGE.md</text>
+  <text x="225" y="212" fill="#818cf8" font-family="'SF Mono', monospace" font-size="9" text-anchor="middle">Exploratory read → top-5 highlights only</text>
+
+  <!-- Arrow -->
+  <line x1="225" y1="224" x2="225" y2="244" stroke="#6366f1" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Claude reads SKILL.md -->
+  <rect x="100" y="246" width="250" height="34" fill="#0f2d1f" rx="6" stroke="#10b981" stroke-width="1.5"/>
+  <text x="225" y="258" fill="#6ee7b7" font-family="'SF Mono', monospace" font-size="10" text-anchor="middle">Claude reads SKILL.md</text>
+  <text x="225" y="273" fill="#34d399" font-family="'SF Mono', monospace" font-size="9" text-anchor="middle">PostToolUse fires ↓</text>
+
+  <!-- Arrow to OPT-2 -->
+  <line x1="225" y1="280" x2="225" y2="298" stroke="#6366f1" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- OPT-2 box -->
+  <rect x="75" y="300" width="300" height="56" fill="#1a1505" rx="6" stroke="#f97316" stroke-width="1.5"/>
+  <rect x="75" y="300" width="300" height="16" fill="#431407" rx="6"/>
+  <rect x="75" y="310" width="300" height="6" fill="#431407"/>
+  <text x="225" y="312" fill="#fdba74" font-family="'SF Mono', monospace" font-size="9.5" text-anchor="middle" font-weight="bold">OPT-2  ·  Error-Seed Capture</text>
+  <text x="225" y="329" fill="#fed7aa" font-family="'SF Mono', monospace" font-size="9" text-anchor="middle">Detects error signals in prev tool result</text>
+  <text x="225" y="344" fill="#fb923c" font-family="'SF Mono', monospace" font-size="9" text-anchor="middle">Writes raw error+fix to .error_seeds file</text>
+
+  <!-- Arrow -->
+  <line x1="225" y1="356" x2="225" y2="374" stroke="#6366f1" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- inject-skill-knowledge.py -->
+  <rect x="75" y="376" width="300" height="36" fill="#1e293b" rx="6" stroke="#475569" stroke-width="1"/>
+  <text x="225" y="390" fill="#94a3b8" font-family="'SF Mono', monospace" font-size="10" text-anchor="middle">inject-skill-knowledge.py</text>
+  <text x="225" y="406" fill="#64748b" font-family="'SF Mono', monospace" font-size="9" text-anchor="middle">reads KNOWLEDGE.md  →  filter intent</text>
+
+  <!-- Arrow -->
+  <line x1="225" y1="412" x2="225" y2="430" stroke="#6366f1" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- additionalContext -->
+  <rect x="100" y="432" width="250" height="34" fill="#1e3a5f" rx="6" stroke="#3b82f6" stroke-width="1"/>
+  <text x="225" y="447" fill="#93c5fd" font-family="'SF Mono', monospace" font-size="10" text-anchor="middle">additionalContext injected</text>
+  <text x="225" y="462" fill="#60a5fa" font-family="'SF Mono', monospace" font-size="9" text-anchor="middle">Claude responds with experience ✓</text>
+
+  <!-- Bottom label -->
+  <text x="225" y="512" fill="#475569" font-family="'SF Mono', monospace" font-size="9" text-anchor="middle">&lt; 5 ms  ·  pure file I/O  ·  zero network</text>
+
+  <!-- ═══════════════ RIGHT PANEL: DISTILLATION FLOW ═══════════════ -->
+  <rect x="540" y="68" width="390" height="460" fill="#0f172a" rx="10" stroke="#334155" stroke-width="1"/>
+  <rect x="540" y="68" width="390" height="30" fill="#1e293b" rx="10"/>
+  <rect x="540" y="88" width="390" height="10" fill="#1e293b"/>
+  <text x="735" y="88" fill="#94a3b8" font-family="'SF Mono', monospace" font-size="11" text-anchor="middle" font-weight="bold">DISTILLATION  ·  Stop Hook  (async)</text>
+
+  <!-- Session ends -->
+  <rect x="630" y="110" width="210" height="36" fill="#1a0a2e" rx="6" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="735" y="133" fill="#d8b4fe" font-family="'SF Mono', monospace" font-size="12" text-anchor="middle">🏁  Session ends</text>
+
+  <!-- Arrow -->
+  <line x1="735" y1="146" x2="735" y2="166" stroke="#a855f7" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- OPT-1 box -->
+  <rect x="575" y="168" width="320" height="56" fill="#1a1a05" rx="6" stroke="#eab308" stroke-width="1.5"/>
+  <rect x="575" y="168" width="320" height="16" fill="#422006" rx="6"/>
+  <rect x="575" y="178" width="320" height="6" fill="#422006"/>
+  <text x="735" y="180" fill="#fde68a" font-family="'SF Mono', monospace" font-size="9.5" text-anchor="middle" font-weight="bold">OPT-1  ·  Context-Compression Detection</text>
+  <text x="735" y="197" fill="#fef08a" font-family="'SF Mono', monospace" font-size="9" text-anchor="middle">Count real tool_use blocks in transcript</text>
+  <text x="735" y="212" fill="#ca8a04" font-family="'SF Mono', monospace" font-size="9" text-anchor="middle">If &lt; MIN_TOOL_CALLS → skip  (summary session)</text>
+
+  <!-- Arrow -->
+  <line x1="735" y1="224" x2="735" y2="244" stroke="#a855f7" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Read error seeds -->
+  <rect x="580" y="246" width="310" height="34" fill="#1a0a10" rx="6" stroke="#f43f5e" stroke-width="1.5"/>
+  <text x="735" y="259" fill="#fda4af" font-family="'SF Mono', monospace" font-size="10" text-anchor="middle">OPT-2  ·  Load .error_seeds  (high-signal)</text>
+  <text x="735" y="275" fill="#fb7185" font-family="'SF Mono', monospace" font-size="9" text-anchor="middle">Ground-truth errors consumed + deleted</text>
+
+  <!-- Arrow -->
+  <line x1="735" y1="280" x2="735" y2="298" stroke="#a855f7" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- haiku distillation -->
+  <rect x="595" y="300" width="280" height="56" fill="#0f1a2e" rx="6" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="735" y="322" fill="#a5b4fc" font-family="'SF Mono', monospace" font-size="10" text-anchor="middle">claude-haiku distillation</text>
+  <text x="735" y="340" fill="#818cf8" font-family="'SF Mono', monospace" font-size="9" text-anchor="middle">transcript + seeds → 1-3 new lessons</text>
+  <text x="735" y="352" fill="#6366f1" font-family="'SF Mono', monospace" font-size="8.5" text-anchor="middle">Seeds section marked as ground truth in prompt</text>
+
+  <!-- Arrow -->
+  <line x1="735" y1="356" x2="735" y2="374" stroke="#a855f7" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- OPT-4 box -->
+  <rect x="575" y="376" width="320" height="56" fill="#0a1a0f" rx="6" stroke="#10b981" stroke-width="1.5"/>
+  <rect x="575" y="376" width="320" height="16" fill="#052e16" rx="6"/>
+  <rect x="575" y="386" width="320" height="6" fill="#052e16"/>
+  <text x="735" y="388" fill="#6ee7b7" font-family="'SF Mono', monospace" font-size="9.5" text-anchor="middle" font-weight="bold">OPT-4  ·  Frequency-Weighted Eviction</text>
+  <text x="735" y="405" fill="#a7f3d0" font-family="'SF Mono', monospace" font-size="9" text-anchor="middle">Existing matches → [HIT:N] counter bumped</text>
+  <text x="735" y="420" fill="#34d399" font-family="'SF Mono', monospace" font-size="9" text-anchor="middle">Overflow → evict lowest (hits × recency)</text>
+
+  <!-- Arrow -->
+  <line x1="735" y1="432" x2="735" y2="450" stroke="#10b981" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- KNOWLEDGE.md updated -->
+  <rect x="610" y="452" width="250" height="36" fill="#1e293b" rx="6" stroke="#475569" stroke-width="1"/>
+  <text x="735" y="468" fill="#e2e8f0" font-family="'SF Mono', monospace" font-size="10" text-anchor="middle">KNOWLEDGE.md  updated ✓</text>
+  <text x="735" y="483" fill="#94a3b8" font-family="'SF Mono', monospace" font-size="9" text-anchor="middle">smarter next session</text>
+
+  <!-- Bottom label -->
+  <text x="735" y="512" fill="#475569" font-family="'SF Mono', monospace" font-size="9" text-anchor="middle">async  ·  never blocks session  ·  30s timeout</text>
+
+  <!-- ═══════════ CENTER BRIDGE ═══════════ -->
+  <!-- .error_seeds bridge arrow (right to left panel, curved) -->
+  <path d="M 420 330 Q 480 330 540 300" stroke="#f97316" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#arrow-orange)"/>
+  <text x="480" y="322" fill="#fb923c" font-family="'SF Mono', monospace" font-size="8.5" text-anchor="middle">.error_seeds</text>
+
+  <!-- KNOWLEDGE.md bridge arrow -->
+  <path d="M 420 400 Q 480 400 540 380" stroke="#10b981" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#arrow-green)"/>
+  <text x="480" y="394" fill="#34d399" font-family="'SF Mono', monospace" font-size="8.5" text-anchor="middle">KNOWLEDGE.md</text>
+
+  <!-- ═══════════════ BOTTOM: FILE STRUCTURE ═══════════════ -->
+  <rect x="30" y="538" width="900" height="30" fill="#0f172a" rx="8" stroke="#1e293b" stroke-width="1"/>
+  <text x="480" y="556" fill="#475569" font-family="'SF Mono', monospace" font-size="9.5" text-anchor="middle">~/.claude/skills/{name}/  →  SKILL.md  ·  KNOWLEDGE.md  ·  .error_seeds (transient)  ·  ~/.claude/skills-knowledge.md (global)</text>
+</svg>
