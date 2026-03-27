@@ -1,0 +1,29 @@
+# Personal knowledge files — never commit these
+examples/skill-knowledge/*.local.md
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Secrets / credentials — extra safety net
+*.env
+.env*
+*_token*
+*_secret*
+*credentials*

@@ -1,0 +1,27 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ~/.claude/scripts/update-skills-knowledge.py",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ~/.claude/scripts/inject-skill-knowledge.py",
+            "if": "Read(**/.claude/skills/*/SKILL.md)"
+          }
+        ]
+      }
+    ]
+  }
+}
